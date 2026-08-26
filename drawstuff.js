@@ -158,10 +158,10 @@ function main() {
     var imagedata = context.createImageData(w,h);
  
     // Define a rectangle in 2D with colors and coords at corners
-    var ulc = new Color(255,0,0,255); // upper left corner color: red
-    var urc = new Color(0,255,0,255); // upper right corner color: green
-    var llc = new Color(0,0,255,255); // lower left corner color: blue
-    var lrc = new Color(0,0,0,255); // lower right corner color: black
+    var ulc = new Color(235,34,34,255); // upper left corner color: red
+    var urc = new Color(242,215,61,255); // upper right corner color: green
+    var llc = new Color(4,189,183,255); // lower left corner color: blue
+    var lrc = new Color(125,19,255,255); // lower right corner color: black
     var ulx = 50, uly = 50; // upper left corner position
     var urx = 200, ury = 50; // upper right corner position
     var llx = 50, lly = 150; // lower left corner position
@@ -183,7 +183,7 @@ function main() {
     for (var y=uly; y<=lly; y++) {
         hc.copy(lc); // begin with the left color
         hcDelta.copy(rc).subtract(lc).scale(hDelta); // reset horiz color delta
-        for (var x=ulx; x<=urx; x++) {
+        for (var x=ulx; x<=urx-y; x++) {
             drawPixel(imagedata,x,y,hc);
             hc.add(hcDelta);
         } // end horizontal
